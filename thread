@@ -1,0 +1,32 @@
+‘process id + PID’ 형태로 출력하는 코드
+
+
+import os
+    print('process id', os.getpid())
+
+이 프로세스에 새로운 스레드를 만들어 보기
+
+import threading
+import os
+def foo():
+    print('thread id', threading.get_native_id())
+    print('process id', os.getpid())
+
+if __name__ == '__main__':
+    print('process id', os.getpid())
+    thread = threading.Thread(target=foo).start()
+
+동일한 작업을 하는 스레드 생성하기
+
+import threading
+import os
+ 
+def foo():
+     print('thread id', threading.get_native_id())
+     print('process id', os.getpid())
+ 
+if __name__ == '__main__':
+     print('process id', os.getpid())
+     thread1 = threading.Thread(target=foo).start()
+     thread2 = threading.Thread(target=foo).start()
+     thread3 = threading.Thread(target=foo).start()
